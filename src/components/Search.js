@@ -5,7 +5,9 @@ class Search extends React.Component {
 
     onFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state.input)
+        if (this.state.input) {
+            this.props.onSearchSubmit(this.state.input);
+        }
     }
 
     render() {
