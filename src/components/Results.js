@@ -8,7 +8,7 @@ const Results = (props) => {
             <div className="item" index={index}>
                 <div className="content">
                     <a className="header">{result.title}</a>
-                    <div className="description">{cleanString(result.snippet)}</div>
+                    <div className="description">{cleanString(result.snippet)}...</div>
                 </div>
             </div>
         );
