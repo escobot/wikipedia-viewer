@@ -10,17 +10,29 @@ class App extends React.Component {
 
   onSearchSubmit = async term => {
     let url = "https://en.wikipedia.org/w/api.php"; 
-    let params = {
+
+    let params = {};
+    if (typeof term === "string") {
+      params = {
         action: "query",
         list: "search",
         srsearch: term,
         format: "json"
+      };
+    } else {
+        params = {
+          action: "query",
+          list: "random",
+          format: "json",
+          rnlimit: "8"
+      };
     };
+
     url = url + "?origin=*";
     Object.keys(params).forEach((key) => url += "&" + key + "=" + params[key]);
-    
+
     const response = await axios.get(url)
-    this.setState({ resultsList: response.data.query.search });
+    this.setState({ resultsList: response.data.query[params.list] });
   }
 
   render() {
@@ -31,6 +43,7 @@ class App extends React.Component {
         <div className="ui container">
           <Search onSearchSubmit={this.onSearchSubmit} />
           <br />
+          <button  className="ui button" onClick={this.onSearchSubmit}>Random</button>
           <Results resultsList={this.state.resultsList} />
         </div>
       </div>

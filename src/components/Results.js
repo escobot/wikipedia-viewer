@@ -1,6 +1,10 @@
 const Results = (props) => {
     const cleanString = (str) => {
-        return str.replaceAll('<span class="searchmatch">', '').replaceAll('</span>', '');
+        if(typeof str === 'string') {
+            return str.replaceAll('<span class="searchmatch">', '').replaceAll('</span>', '');
+        } else {
+            return '';
+        }
     }
 
     const results =  props.resultsList.map((result, index) => {

@@ -15,7 +15,7 @@ class Search extends React.Component {
             <div>
                 <form className="ui form" onSubmit={this.onFormSubmit}>
                     <div className="field">
-                        <div class="ui action input">
+                        <div className="ui action input">
                             <input 
                                 type="text" 
                                 placeholder="Search wikipedia"
@@ -29,6 +29,6 @@ class Search extends React.Component {
             </div>
         );
     }
-}
+};
 
 export default Search;
