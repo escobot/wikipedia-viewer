@@ -14,15 +14,17 @@ class Search extends React.Component {
         return (
             <div>
                 <form className="ui form" onSubmit={this.onFormSubmit}>
-                <div className="field">
-                    <input 
-                        type="text" 
-                        placeholder="Search wikipedia"
-                        value={this.state.input} 
-                        onChange={e => this.setState({ input: e.target.value })} 
-                    />
-                </div>
-                <button className="ui button" type="submit">Submit</button>
+                    <div className="field">
+                        <div class="ui action input">
+                            <input 
+                                type="text" 
+                                placeholder="Search wikipedia"
+                                value={this.state.input} 
+                                onChange={e => this.setState({ input: e.target.value })} 
+                            />
+                            <button className="ui button" type="submit">Submit</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         );
